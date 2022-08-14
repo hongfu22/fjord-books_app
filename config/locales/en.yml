@@ -52,3 +52,7 @@ en:
     top: Books
     new: New book
     edit: Edit book
+  messages:
+    create: Book was successfully created.
+    update: Book was successfully updated.
+    destroy: Book was successfully destroyed.
