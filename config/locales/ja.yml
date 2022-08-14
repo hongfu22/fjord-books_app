@@ -7,6 +7,11 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+      models:
+        user:
+          attributes:
+            email:
+              not_found: "は使われていません"
   date:
     abbr_day_names:
     - 日
@@ -106,6 +111,35 @@ ja:
       day: 日
       month: 月
       year: 年
+  devise:
+    failure:
+      user:
+        invalid: "ログインに失敗しました"
+    registrations:
+      user:
+        signed_up: "ユーザーが作られました"
+    sessions:
+      user:
+        signed_in: "ログインしました"
+    common:
+      show: 詳細
+      edit: 編集
+      destroy: 削除
+      new: 新規作成
+      login: "ログイン"
+      login_status: "ログインユーザー："
+      logout: "ログアウト"
+      edit_profile: "プロフィールの編集"
+      signup: "登録"
+  data:
+    name: "ユーザー名"
+    email: "Eメール"
+    password: "パスワード"
+    password_confirmation: "パスワード（確認用）"
+    postcode: "郵便番号"
+    address: "住所"
+    introduction: "自己紹介"
+    signup: "登録"
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -213,6 +247,12 @@ ja:
       new: 新規作成
       back: 戻る
       delete_confirm: よろしいですか？
+      login: "ログイン"
+      login_status: "ログインユーザー："
+      logout: "ログアウト"
+      minimum_character: "桁以上"
+      edit_profile: "プロフィールの編集"
+      signup: "登録"
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
     pagination:

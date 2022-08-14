@@ -221,6 +221,8 @@ en:
       new: "New record"
       back: Back
       delete_confirm: "Are you sure?"
+      login_status: "Login as："
+      minimum_character: "characters minimum"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
   controllers:
