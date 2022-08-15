@@ -24,7 +24,7 @@ module BooksApp
     # アプリケーションでの利用を許可するロケールのリストを渡す
     I18n.available_locales = [:en, :ja]
 
-    I18n.default_locale = :ja
+    I18n.default_locale = :en
 
   end
 end
