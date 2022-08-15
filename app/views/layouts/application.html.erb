@@ -8,9 +8,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <% if locale == :ja %>
-      <%= link_to("EN", "http://localhost:3000/en#{request.env['PATH_INFO'].gsub(/ja/, '')}") %>
+      <%= link_to("EN", "http://localhost:3000/en#{request.env['PATH_INFO'].gsub('/ja', '')}") %>
     <% else %>
-      <%= link_to("JA", "http://localhost:3000/ja#{request.env['PATH_INFO'].gsub(/en/, '')}") %>
+      <%= link_to("JA", "http://localhost:3000/ja#{request.env['PATH_INFO'].gsub('/en', '')}") %>
     <% end %>
   </head>
 
