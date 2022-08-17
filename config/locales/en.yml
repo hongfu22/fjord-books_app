@@ -39,20 +39,23 @@ en:
         memo: Memo
         author: Author
         picture: Picture
-  button:
-    edit: edit
-    back: back
-    show: detail
-    destroy: destroy
-    new: New book
-    create: Create book
-  confirmation:
-    Are you sure?
-  title:
-    top: Books
-    new: New book
-    edit: Edit book
+  book:
+    button:
+      edit: Edit
+      back: Back
+      show: Detail
+      destroy: Destroy
+      new: New Book
+    title:
+      top: Books
+      new: New book
+      edit: Edit book
   messages:
     create: Book was successfully created.
     update: Book was successfully updated.
     destroy: Book was successfully destroyed.
+    confirmation: Are you sure?
+  helpers:
+    submit:
+      create: "Create"
+      update: "Update"
