@@ -20,15 +20,17 @@ ja:
       welcome: "ようこそ"
     failure:
       user:
-        invalid: "ログインに失敗しました"
-        unauthenticated: "認証できませんでした"
+        invalid: "ログインに失敗しました。"
+        unauthenticated: "認証できませんでした。"
     registrations:
       user:
-        signed_up: "ユーザーが作成されました"
-        updated: "ユーザー情報が更新されました"
+        signed_up: "ユーザーが作成されました。"
+        updated: "ユーザー情報が更新されました。"
     sessions:
       user:
-        signed_in: "ログインしました"
+        signed_in: "ログインしました。"
+        signed_out: "ログアウトしました。"
+        already_signed_out: "既にログアウトしています。"
     passwords:
       forgot: "パスワードをお忘れですか？"
       reset: "パスワードリセット手順送信"
@@ -39,8 +41,8 @@ ja:
       new: "新パスワード"
       new_confirm: "新パスワード(確認用)"
       user:
-        send_instructions: "パスワード再設定メールを送信しました"
-        updated: "パスワードが再設定されました"
+        send_instructions: "パスワード再設定メールを送信しました。"
+        updated: "パスワードが再設定されました。"
     cancel:
       account: "アカウントの削除"
       unhappy: "お気に召しませんでしたか？"

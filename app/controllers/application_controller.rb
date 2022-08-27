@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   # deviseのコントローラを使う前に呼ばれるアクション
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_out_path_for(_resource)
+    new_user_session_path # ログアウト後に遷移するpathを設定
+  end
+
   private
 
   def configure_permitted_parameters
