@@ -7,11 +7,6 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-      models:
-        user:
-          attributes:
-            email:
-              not_found: "は使われていません"
   date:
     abbr_day_names:
     - 日
@@ -111,35 +106,6 @@ ja:
       day: 日
       month: 月
       year: 年
-  devise:
-    failure:
-      user:
-        invalid: "ログインに失敗しました"
-    registrations:
-      user:
-        signed_up: "ユーザーが作られました"
-    sessions:
-      user:
-        signed_in: "ログインしました"
-    common:
-      show: 詳細
-      edit: 編集
-      destroy: 削除
-      new: 新規作成
-      login: "ログイン"
-      login_status: "ログインユーザー："
-      logout: "ログアウト"
-      edit_profile: "プロフィールの編集"
-      signup: "登録"
-  data:
-    name: "ユーザー名"
-    email: "Eメール"
-    password: "パスワード"
-    password_confirmation: "パスワード（確認用）"
-    postcode: "郵便番号"
-    address: "住所"
-    introduction: "自己紹介"
-    signup: "登録"
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -159,6 +125,7 @@ ja:
       model_invalid: 'バリデーションに失敗しました: %{errors}'
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
+      not_saved: 以下のエラーが発生しました
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
       present: は入力しないでください
@@ -241,6 +208,7 @@ ja:
     pm: 午後
   views:
     common:
+      confirmation: 本当によろしいですか？
       show: 詳細
       edit: 編集
       destroy: 削除
@@ -252,6 +220,8 @@ ja:
       logout: "ログアウト"
       minimum_character: "桁以上"
       edit_profile: "プロフィールの編集"
+      user_list: "ユーザー一覧"
+      book_list: "書籍一覧"
       signup: "登録"
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"

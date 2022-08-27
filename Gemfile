@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'erb_lint', require: false
   gem 'faker'
   gem 'i18n_generators'
   gem 'listen', '~> 3.3'
@@ -60,5 +61,5 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'carrierwave'
-gem 'kaminari'
 gem 'devise'
+gem 'kaminari'

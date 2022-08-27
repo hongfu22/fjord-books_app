@@ -2,6 +2,7 @@ en:
   activerecord:
     models:
       book: Book  #g
+      user: User
 
     attributes:
       book:
@@ -9,3 +10,14 @@ en:
         memo: Memo  #g
         picture: Picture  #g
         title: Title  #g
+      user:
+        name: Username
+        email: Email
+        postcode: Postcode
+        address: Address
+        password: Password
+        introduction: Introduction
+        password_confirmation: Password(confirmation)
+        current_password: Current Password
+        reset_password_token: 
+          expired: Token has expired
