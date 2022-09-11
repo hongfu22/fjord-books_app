@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "username" %>
   </div>
 
   <div class="field">
@@ -15,17 +15,17 @@
 
   <div class="field">
     <%= f.label :postcode %><br />
-    <%= f.text_field :postcode, autocomplete: "postcode" %>
+    <%= f.text_field :postcode, autocomplete: "postal-code" %>
   </div>
 
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.text_field :address, autocomplete: "address" %>
+    <%= f.text_field :address, autocomplete: "street-address" %>
   </div>
 
   <div class="field">
     <%= f.label :introduction %><br />
-    <%= f.text_area :introduction, autocomplete: "introduction" %>
+    <%= f.text_area :introduction %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -34,7 +34,7 @@
 
   <div class="field">
     <%= f.label :password %> <i><%= t('devise.passwords.not_change') %></i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> <%= t('devise.passwords.characters_minimum') %></em>
@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="field">

@@ -25,3 +25,5 @@ ja:
           attributes:
             reset_password_token:
               expired: リンクの有効期限が切れています
+            email:
+              not_found: 入力したemailのアカウントは存在しません

@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
     # 新規登録時に名前、郵便番号、住所、自己紹介の取得を許可
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name postcode address introduction])
     # 情報更新時に名前、郵便番号、住所、自己紹介の取得を許可
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[name post_code address introduction])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name postcode address introduction])
   end
 end
