@@ -10,10 +10,8 @@
 
   <div class="field">
     <%= f.label :image %>
-    <%= image_tag @user.image.variant(resize_to_limit: [50, 50]) if @user.image.attached? %>
-    <%= f.file_field :image, autocomplete: "image"%>
+    <%= f.file_field :image, autocomplete: "image" %>
   </div>
-
 
   <%= render 'devise/registrations/profile_fields', f: f %>
 
