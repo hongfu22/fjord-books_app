@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t('book.title.top') %></h1>
+<h1><%= t('title.list', model: t('activerecord.models.book')) %></h1>
 
 <table>
   <thead>
@@ -20,9 +20,9 @@
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
         <td><%= book.picture %></td>
-        <td><%= link_to t('book.button.show'), book %></td>
-        <td><%= link_to t('book.button.edit'), edit_book_path(book) %></td>
-        <td><%= link_to t('book.button.destroy'), book, method: :delete, data: { confirm: I18n.t('confirmation') } %></td>
+        <td><%= link_to t('button.show'), book %></td>
+        <td><%= link_to t('button.edit'), edit_book_path(book) %></td>
+        <td><%= link_to t('button.destroy'), book, method: :delete, data: { confirm: I18n.t('messages.confirmation') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to t('book.button.new'), new_book_path %>
+<%= link_to t('button.new', model: t('activerecord.models.book')), new_book_path %>

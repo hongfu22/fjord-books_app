@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1><%= t('title.show', model: t('activerecord.models.book')) %></h1>
 <p>
   <strong><%= Book.human_attribute_name(:title) %>:</strong>
   <%= @book.title %>
@@ -20,5 +20,5 @@
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
-<%= link_to t('book.button.edit'), edit_book_path(@book) %> |
-<%= link_to t('book.button.back'), books_path %>
+<%= link_to t('button.edit'), edit_book_path(@book) %> |
+<%= link_to t('button.back'), books_path %>
