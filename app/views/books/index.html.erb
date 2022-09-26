@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t('title.list', model: t('activerecord.models.book')) %></h1>
+<h1><%= t('title.list', model: Book.model_name.human) %></h1>
 
 <table>
   <thead>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to t('button.new', model: t('activerecord.models.book')), new_book_path %>
+<%= link_to t('button.new', model: Book.model_name.human), new_book_path %>

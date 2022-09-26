@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1><%= t('title.show', model: t('activerecord.models.book')) %></h1>
+<h1><%= t('title.show', model: Book.model_name.human) %></h1>
 <p>
   <strong><%= Book.human_attribute_name(:title) %>:</strong>
   <%= @book.title %>
