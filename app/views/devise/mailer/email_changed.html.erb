@@ -1,0 +1,7 @@
+<p><%= t('devise.email.hello') %> <%= @email %>!</p>
+
+<% if @resource.try(:unconfirmed_email?) %>
+  <p><%= t('devise.email.email_changing') %> <%= @resource.unconfirmed_email %>.</p>
+<% else %>
+  <p><%= t('devise.email.email_changed') %> <%= @resource.email %>.</p>
+<% end %>

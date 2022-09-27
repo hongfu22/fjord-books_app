@@ -1,0 +1,59 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ja:
+  devise:
+    email:
+      account_locked: "アクセスの失敗が規定回数を超えたためアカウントがロックされました。"
+      account_unlock: "アカウントのロックを解除するためには下のリンクからロックの解除を行ってください。"
+      change_password: "パスワード変更用のリンクがリクエストされました。下のリンクからパスワードの再設定を行ってください。"
+      confirm_account: "アカウントの確認"
+      confirm_email: "下のリンクからアカウントのメールアドレスを確認できます。"
+      email_changing: "あなたのメールアドレスが次のように変更されようとしています。"
+      email_changed: "あなたのメールアドレスが次のように変更されました。"
+      hello: "こんにちは"
+      ignore: "このリクエストに覚えがない場合は、このメールを無視してください。"
+      password_changed: "パスワードが変更されました。"
+      password_not_change: "あなたのパスワードは新しいパスワードをリンクから設定するまで変わりません。"
+      resend_confirmation: "確認用メールの再送"
+      resend_unlock: "ロック解除メールの再送"
+      unlock: "アカウントのロック解除"
+      welcome: "ようこそ"
+    failure:
+      user:
+        invalid: "ログインに失敗しました。"
+        unauthenticated: "認証できませんでした。"
+    registrations:
+      user:
+        signed_up: "ユーザーが作成されました。"
+        updated: "ユーザー情報が更新されました。"
+    sessions:
+      user:
+        signed_in: "ログインしました。"
+        signed_out: "ログアウトしました。"
+        already_signed_out: "既にログアウトしています。"
+    passwords:
+      forgot: "パスワードをお忘れですか？"
+      reset: "パスワードリセット手順送信"
+      characters_minimum: "文字以上"
+      change: "パスワードの再設定"
+      not_change: "(変更しない場合は入力しないでください)"
+      confirm: "(変更を確定するために現在のパスワードを入力してください)"
+      new: "新パスワード"
+      new_confirm: "新パスワード(確認用)"
+      user:
+        send_instructions: "パスワード再設定メールを送信しました。"
+        updated: "パスワードが再設定されました。"
+    cancel:
+      account: "アカウントの削除"
+      unhappy: "お気に召しませんでしたか？"
+    common:
+      show: "詳細"
+      edit: "編集"
+      destroy: "削除"
+      new: "新規作成"
+      login: "ログイン"
+      login_status: "ログインユーザー："
+      logout: "ログアウト"
+      edit_profile: "プロフィールの編集"
+      signup: "登録"
+      remember_me: "ログイン情報を保存しますか？"

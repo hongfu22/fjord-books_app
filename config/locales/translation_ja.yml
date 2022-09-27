@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       book: 本  #g
+      user: ユーザー
 
     attributes:
       book:
@@ -9,3 +10,20 @@ ja:
         memo: メモ  #g
         picture: 画像  #g
         title: 題名  #g
+      user:
+        name: ユーザー名
+        email: Eメール
+        postcode: 郵便番号
+        address: 住所
+        password: パスワード
+        introduction: 自己紹介
+        password_confirmation: パスワード(確認用)
+        current_password: 現在のパスワード
+    errors:
+      models:
+        user:
+          attributes:
+            reset_password_token:
+              expired: リンクの有効期限が切れています
+            email:
+              not_found: 入力したemailのアカウントは存在しません
