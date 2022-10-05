@@ -9,6 +9,6 @@ class User < ApplicationRecord
   private
 
   def image_type
-    errors.add(:image, 'はjpg,png,gif形式のものにして下さい') unless image.content_type.in?(%('image/jpeg image/png image/gif'))
+    errors.add(:image, 'はjpg,png,gif形式のものにして下さい') if image.attached? && !image.content_type.in?(%('image/jpeg image/png image/gif'))
   end
 end
