@@ -224,6 +224,8 @@ en:
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
       title_show: "%{name} Details"
+      title_follow: Following
+      title_follower: Follower
       sign_out: "Sign out"
       minimum_length: "%{length} characters minimum"
   controllers:
