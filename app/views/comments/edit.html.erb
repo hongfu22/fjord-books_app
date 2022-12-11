@@ -1,0 +1,4 @@
+<h1><%= @commentable.model_name.human %> コメント 編集</h1>
+
+<%= render partial: "comments/form", locals: {commentable: @commentable, comment: @comment} %>
+
