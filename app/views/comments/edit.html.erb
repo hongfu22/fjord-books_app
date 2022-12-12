@@ -1,4 +1,5 @@
-<h1><%= @commentable.model_name.human %> コメント 編集</h1>
+<h1><%= t('views.common.title_edit', name: Comment.model_name.human) %></h1>
 
 <%= render partial: "comments/form", locals: {commentable: @commentable, comment: @comment} %>
 
+<%= link_to t('views.common.back'), @commentable %>

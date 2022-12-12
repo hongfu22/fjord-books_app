@@ -1,15 +1,19 @@
 
-<h1>Comments</h1>
+<h1><%= Comment.model_name.human %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Content</th>
-      <th>Time</th>
+      <th><%= Comment.human_attribute_name(:user) %></th>
+      <th><%= Comment.human_attribute_name(:content) %></th>
+      <th><%= Comment.human_attribute_name(:time) %></th>
       <th colspan="2"></th>
     </tr>
   </thead>
+
+  <% if flash[:error] %>
+    エラー内容：<%= flash[:error] %>
+  <% end %>
 
   <tbody>
     <% if commentable.comments.size.zero? %>
@@ -22,11 +26,10 @@
           <td><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %></td>
           <% if current_user.id == comment.user_id %>
             <td><%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %></td>
-            <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
           <% end %>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
-
