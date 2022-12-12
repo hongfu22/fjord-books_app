@@ -1,5 +1,6 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
-
+<%= render 'shared/following_info' %>
+<%= render 'follow_form' %>
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
   <%= @user.email %>
@@ -29,7 +30,7 @@
   <strong><%= User.human_attribute_name(:avatar) %>:</strong>
   <% if @user.avatar.attached? %>
     <br>
-    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
+    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150]) %>
   <% end %>
 </p>
 

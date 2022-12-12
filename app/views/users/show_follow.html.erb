@@ -1,0 +1,45 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <span>
+        <% if @user.avatar.attached? %>
+          <br>
+          <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150]) %>
+        <% end %>
+      </span>
+      <p><%= @user.name %></p>
+      <%= render 'shared/following_info' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th><%= User.human_attribute_name(:email) %></th>
+          <th><%= User.human_attribute_name(:name) %></th>
+          <th><%= User.human_attribute_name(:postal_code) %></th>
+          <th><%= User.human_attribute_name(:address) %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <th>
+              <% if user.avatar.attached? %>
+                <%= image_tag user.avatar.variant(resize_to_fill: [30, 30]) %>
+              <% end %>
+            </th>
+            <td><%= user.email %></td>
+            <td><%= user.name %></td>
+            <td><%= user.postal_code %></td>
+            <td><%= user.address %></td>
+            <td><%= link_to t('views.common.show'), user %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
