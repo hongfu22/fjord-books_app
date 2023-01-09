@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'erb_lint', require: false
   gem 'dummy_text_jp'
   gem 'faker'
   gem 'i18n_generators'
