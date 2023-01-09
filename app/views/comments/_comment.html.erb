@@ -12,12 +12,12 @@
   </thead>
 
   <% if flash[:error] %>
-    エラー内容：<%= flash[:error] %>
+    <%= t('errors.messages.content') %>：<%= flash[:error] %>
   <% end %>
 
   <tbody>
     <% if commentable.comments.size.zero? %>
-      <td colspan="3">コメントなし</td>
+      <td colspan="3"><%= Comment.human_attribute_name(:no_comment) %></td>
     <% else %>
       <% commentable.comments.preload(:user).each do |comment| %>
         <tr>
@@ -29,7 +29,7 @@
             <% end %>
           </td>
           <td><%= comment.content %></td>
-          <td><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+          <td><%= l(comment.created_at, format: :comment) %></td>
           <% if current_user.id == comment.user_id %>
             <td><%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %></td>
             <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>

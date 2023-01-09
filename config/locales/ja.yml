@@ -112,6 +112,7 @@ ja:
       accepted: を受諾してください
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
+      content: エラー内容：
       empty: を入力してください
       equal_to: は%{count}にしてください
       even: は偶数にしてください
@@ -133,6 +134,7 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      wrong_user: 不正なユーザーです
     template:
       body: 次の項目を確認してください
       header:
@@ -201,8 +203,10 @@ ja:
   time:
     am: 午前
     formats:
+      comment: "%Y/%m/%d %H:%M"
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
+      report: "%Y/%m/%d"
       short: "%m/%d %H:%M"
     pm: 午後
   views:

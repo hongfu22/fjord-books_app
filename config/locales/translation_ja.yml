@@ -22,6 +22,7 @@ ja:
         user: ユーザー
         content: コメント内容
         time: 投稿日時
+        no_comment: コメントなし
       report:
         title: タイトル
         content: 内容
