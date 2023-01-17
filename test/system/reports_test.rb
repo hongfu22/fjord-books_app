@@ -4,7 +4,8 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:one)
+    create(:alice)
+    @report = create(:report)
     visit root_url
     fill_in 'user_email', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
@@ -16,7 +17,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '日報'
   end
 
-  test 'creating a Report' do
+  test 'create a Report' do
     visit reports_url
     click_on '新規作成'
 
@@ -28,7 +29,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test 'updating a Report' do
+  test 'update a Report' do
     visit reports_url
     click_on '編集'
 
@@ -40,7 +41,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test 'destroying a Book' do
+  test 'destroy a Report' do
     visit reports_url
     page.accept_confirm do
       click_on '削除', match: :first
