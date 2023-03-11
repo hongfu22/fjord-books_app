@@ -13,7 +13,12 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      render polymorphic_path(@commentable)
+      # if~elseでまとめるとrubocopで注意されるため1行ずつ条件チェック
+      flash.now[:alert] = '無効なコメントです。'
+      @report = Report.find(params[:report_id]) if params[:report_id]
+      render 'reports/show' if @report
+      @book = Book.find(params[:book_id]) if params[:book_id]
+      render 'books/show' if @book
     end
   end
 
@@ -21,6 +26,7 @@ class CommentsController < ApplicationController
     if @comment.update(comment_params)
       redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
+      flash.now[:alert] = '無効なコメントです。'
       render :edit
     end
   end
@@ -39,6 +45,6 @@ class CommentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :commentable_id, :commentable_type)
+    params.require(:comment).permit(:content, :user_id, :commentable_id, :commentable_type, :report)
   end
 end
