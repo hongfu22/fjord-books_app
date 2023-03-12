@@ -2,6 +2,7 @@
 
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
+  before_action :correct_user, only: %i[edit update destroy]
 
   def edit; end
 
@@ -13,12 +14,10 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      # if~elseでまとめるとrubocopで注意されるため1行ずつ条件チェック
-      flash.now[:alert] = '無効なコメントです。'
-      @report = Report.find(params[:report_id]) if params[:report_id]
-      render 'reports/show' if @report
-      @book = Book.find(params[:book_id]) if params[:book_id]
-      render 'books/show' if @book
+      # レンダリングする際戻し先のインスタンス変数が空になってしまう為、動的に戻り先のインスタンス変数を作り出し中身を戻している。
+      instance_variable_set("@#{@comment.commentable_type.downcase}", @commentable)
+      # レンダリング先を動的に設定
+      render "#{@comment.commentable_type.downcase.pluralize}/show"
     end
   end
 
@@ -26,7 +25,6 @@ class CommentsController < ApplicationController
     if @comment.update(comment_params)
       redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
-      flash.now[:alert] = '無効なコメントです。'
       render :edit
     end
   end
@@ -46,5 +44,9 @@ class CommentsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def comment_params
     params.require(:comment).permit(:content, :user_id, :commentable_id, :commentable_type, :report)
+  end
+
+  def correct_user
+    redirect_to polymorphic_url(@comment.commentable), notice: t('errors.messages.wrong_user') unless @comment.user != current_user
   end
 end
