@@ -14,10 +14,10 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      # レンダリングする際戻し先のインスタンス変数が空になってしまう為、動的に戻り先のインスタンス変数を作り出し中身を戻している。
-      instance_variable_set("@#{@comment.commentable_type.downcase}", @commentable)
-      # レンダリング先を動的に設定
-      render "#{@comment.commentable_type.downcase.pluralize}/show"
+      # commentable_type(親要素のクラス名)を小文字にし、ファイルパスに対応させ、レンダリング先を動的に設定
+      # ex) Book -> book -> book/show
+      # 親要素のインスタンス変数に値を設定しなければnilでエラーになるため、レンダリング先と同じ要領でインスタンス変数に値を設定
+      render "#{@comment.commentable_type.downcase.pluralize}/show", locals: { "@#{@comment.commentable_type.downcase}": @commentable }
     end
   end
 
