@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :set_book, only: %i[create]
   before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_report, only: %i[create]
   before_action :correct_user, only: %i[edit update destroy]
 
   def edit; end
@@ -16,8 +18,7 @@ class CommentsController < ApplicationController
     else
       # commentable_type(親要素のクラス名)を小文字にし、ファイルパスに対応させ、レンダリング先を動的に設定
       # ex) Book -> book -> book/show
-      # 親要素のインスタンス変数に値を設定しなければnilでエラーになるため、レンダリング先と同じ要領でインスタンス変数に値を設定
-      render "#{@comment.commentable_type.downcase.pluralize}/show", locals: { "@#{@comment.commentable_type.downcase}": @commentable }
+      render "#{@comment.commentable_type.downcase.pluralize}/show"
     end
   end
 
@@ -37,8 +38,16 @@ class CommentsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  def set_book
+    @book = Book.find(params[:book_id]) if params[:book_id]
+  end
+
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def set_report
+    @report = Report.find(params[:report_id]) if params[:report_id]
   end
 
   # Only allow a list of trusted parameters through.
