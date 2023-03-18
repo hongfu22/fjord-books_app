@@ -62,6 +62,6 @@ class ReportsController < ApplicationController
 
   def correct_user
     @user = Report.find(params[:id]).user
-    redirect_to reports_path, notice: t('errors.messages.wrong_user') unless @user != current_user
+    redirect_to reports_path, notice: t('errors.messages.wrong_user') unless @user == current_user
   end
 end
