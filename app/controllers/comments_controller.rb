@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_book, only: %i[create]
   before_action :set_comment, only: %i[edit update destroy]
-  before_action :set_report, only: %i[create]
   before_action :correct_user, only: %i[edit update destroy]
 
   def edit; end
@@ -38,16 +36,8 @@ class CommentsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_book
-    @book = Book.find(params[:book_id]) if params[:book_id]
-  end
-
   def set_comment
     @comment = Comment.find(params[:id])
-  end
-
-  def set_report
-    @report = Report.find(params[:report_id]) if params[:report_id]
   end
 
   # Only allow a list of trusted parameters through.
@@ -56,6 +46,6 @@ class CommentsController < ApplicationController
   end
 
   def correct_user
-    redirect_to polymorphic_url(@comment.commentable), notice: t('errors.messages.wrong_user') unless @comment.user != current_user
+    redirect_to polymorphic_url(@comment.commentable), notice: t('errors.messages.wrong_user') unless @comment.user == current_user
   end
 end
