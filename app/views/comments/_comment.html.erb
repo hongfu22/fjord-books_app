@@ -1,0 +1,41 @@
+
+<h1><%= Comment.model_name.human %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Comment.human_attribute_name(:user) %></th>
+      <th><%= Comment.human_attribute_name(:content) %></th>
+      <th><%= Comment.human_attribute_name(:time) %></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <% if flash[:error] %>
+    <%= t('errors.messages.content') %>：<%= flash[:error] %>
+  <% end %>
+
+  <tbody>
+    <% if commentable.comments.size.zero? %>
+      <td colspan="3"><%= Comment.human_attribute_name(:no_comment) %></td>
+    <% else %>
+      <% commentable.comments.preload(:user).each do |comment| %>
+        <tr>
+          <td>
+            <% if comment.user.name.empty? %>
+              <%= comment.user.email %>
+            <% else %>
+              <%= comment.user.name %>
+            <% end %>
+          </td>
+          <td><%= comment.content %></td>
+          <td><%= l(comment.created_at, format: :comment) %></td>
+          <% if current_user.id == comment.user_id %>
+            <td><%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %></td>
+            <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
